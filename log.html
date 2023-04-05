@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./login.css">
+
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="one">
+            <h1>instagram</h1>
+            <form>
+
+                <label for="one"></label>
+                <label for="two"></label>
+                <label for="three"></label>
+                <label for="four"></label>
+
+                <input type="text" name="" id="one" placeholder="phone number, username, or Email ">
+
+                <input type="password" name="" id="three" placeholder="Password">
+            </form>
+            <button>Login</button>
+            <div class="or">
+                <div></div>
+                <p>or</p>
+                <div></div>
+            </div>
+            <a href="./forget.html">
+                <p>Forgot password?</p>
+            </a>
+        </div>
+
+        <div class="two">
+            <p style="display: inline;">Have an account?</p>
+            <a href="./signup.html">
+                <p>sign up </p>
+            </a>
+        </div>
+    </div>
+
+    <!-- =============================================== -->
+    <script>
+
+        var inp1 = document.querySelectorAll('input')[0]
+        var inp2 = document.querySelectorAll('input')[1]
+        var btnlog = document.querySelectorAll('button')[0]
+        var ul = document.querySelector('ul')
+        // ========================================
+        btnlog.addEventListener('click', () => {
+            if (inp1.value != "" && inp2.value != "") {
+                var mydata = JSON.parse(localStorage.getItem('dataa'))
+                var value1 = inp1.value
+                var value2 = inp2.value
+                var z = mydata.filter((ele) => {
+                    if (ele.name == value1 && ele.pasword == value2) {
+                        return ele
+                    }
+                });
+
+                if (z != "") {
+                    alert('yoy are successfully login')
+                }
+                else {
+                    alert('user not found')
+                }
+
+                inp1.value = ""
+                inp2.value = ""
+            }
+
+            else {
+                alert('fill all inputs')
+            }
+
+        })
+    </script>
+</body>
+
+</html>

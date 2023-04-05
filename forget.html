@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./forget.css">
+  <title>login</title>
+</head>
+
+<body>
+  <form>
+    <label for="one"></label>
+    <div class="one">
+      <p class="email">Enter your email, phone, or username and we'll send you a link to get back into your account.</p>
+      <input id="one" type="email" placeholder="Email">
+      <button>Verify</button>
+      <div class="or">
+        <div></div>
+        <p>or</p>
+        <div></div>
+      </div>
+      <a href="./signup.html">
+        <p class="neew">Creat new account</p>
+      </a>
+    </div>
+
+    <div class="update">
+      <input type="text" placeholder="new password">
+      <input type="text" placeholder="confirm password">
+      <button>update</button>
+      <a href="./log.html">
+        <ul></ul>
+      </a>
+    </div>
+
+  </form>
+  <script>
+    var inp = document.querySelectorAll('input')[0]
+    var inpnew = document.querySelectorAll('input')[1]
+    var inpcon = document.querySelectorAll('input')[2]
+    var btnvarify = document.querySelectorAll('button')[0]
+    var btnupd = document.querySelectorAll('button')[1]
+    var one = document.querySelector('.one')
+    var update = document.querySelector('.update')
+    var ul = document.querySelector('ul')
+    update.style.display = 'none'
+    btnvarify.style.display = "block"
+    var ul = document.querySelector('ul')
+    var mydata = localStorage.getItem('dataa')
+    var myindex = -1
+    btnvarify.addEventListener('click', (ele) => {
+      ele.preventDefault()
+
+      var mydata = JSON.parse(localStorage.getItem('dataa'))
+      var value = inp.value
+      var z = mydata.filter((ele, index) => {
+
+        if (ele.email == value) {
+          myindex = index
+          one.style.display = "none"
+          update.style.display = 'block'
+        }
+        else {
+          alert('You do not have any account at this email')
+        }
+      })
+    })
+
+    btnupd.addEventListener('click', (ele) => {
+      ele.preventDefault()
+      if (inpnew.value != "" && inpcon.value != "") {
+
+        if (inpnew.value == inpcon.value) {
+          var li = document.createElement('li')
+          li.innerText = 'Login now'
+          ul.appendChild(li)
+          ul.style.marginLeft = '45%'
+          ul.style.marginTop = '10px'
+          ul.style.listStyle = 'none'
+          one.style.display = "none"
+          update.style.display = 'block'
+
+          alert('password match and new password is set')
+          var mydata = JSON.parse(localStorage.getItem('dataa'))
+          mydata[myindex].pasword = inpcon.value
+          localStorage.setItem('dataa', JSON.stringify(mydata))
+        }
+        else {
+          alert('password does not matched')
+
+        }
+      }
+      else {
+        alert('please enter pasword')
+      }
+    })
+
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+form{
+    border: 1px solid #000;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.one{
+    height: 40vh;
+    width: 28%;
+    border: 1px solid lightgray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    /* visibility: hidden; */
+
+
+}
+.one>input{
+    /* display: block; */
+    width: 80%;
+    height: 30px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+.one>input::placeholder{
+    padding-left: 10px;
+}
+.email{
+    margin-top: 20px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    /* font-weight: bold; */
+    font-size: 14px;
+    text-align: center;
+    width: 90%;
+
+}
+.one>button{
+    height: 30px;
+    width: 80%;
+    background-color: rgb(77, 181, 249);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    margin-top: 15px;
+    margin-left: 30px;
+}
+.or{
+    width: 78%;
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    margin-left: 30px;
+}
+.or>div{
+    height: 0.5px;
+    width: 42%;
+    background-color: lightgray;
+    
+}
+.or>p{
+    padding-left: 13px;
+    padding-right: 13px;
+    font-size: 18px;
+    color:  gray;
+}
+.neew{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+    margin-top: 5px;
+    text-align: center;
+}
+.neew:hover{
+    color: grey;
+}
+a{
+    text-decoration: none;
+}
+.update{
+    height: 30vh;
+    width: 30%;
+    border: 1px solid #000;
+}
+.update>input{
+    
+    /* display: block; */
+    width: 80%;
+    height: 30px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+.update>button{
+    height: 30px;
+    width: 80%;
+    background-color: rgb(77, 181, 249);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    margin-top: 15px;
+    margin-left: 30px;
+}
+.update>input::placeholder{
+    padding-left: 10px;
+}
+

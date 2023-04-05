@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./signup.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <form>
+    <div class="main">
+     
+
+      <div class="one">
+        <h1>instagram</h1>
+        <p class="signup">Sign up to see photos and videos from your friends.</p>
+        <form>
+          <label for="one"></label>
+          <label for="five"></label>
+          <label for="two"></label>
+         
+          <input type="text" name="one" id="one"required placeholder="Name">
+          <input type="email" name="" id="two" name="two" placeholder="Email" required>
+          <input type="password" name="" placeholder="Password" required>
+          <input type="number" id="five" name="five" required placeholder="phone number">
+        </form>
+        <p class="people">People who use our service may have uploaded your contact information to Instagram. Learn More</p>
+        <p class="people">By signing up, you agree to our Terms , Privacy Policy and Cookies Policy .</p>
+        <button>Sign up</button>
+
+
+      </div>
+      <div class="already">
+        <p style="display: inline;">Already have an account </p>
+            <a href="./log.html">
+              <p class="log" style="display: inline;">Login</p>
+            </a>
+          </div>
+     </div>
+  </form>
+<!-- ============================================================================== -->
+  <script>
+    var inp1 = document.querySelectorAll('input')[0]
+    var inp2 = document.querySelectorAll('input')[1]
+    var inp3 = document.querySelectorAll('input')[2]
+    var inp4 = document.querySelectorAll('input')[3]
+    var btnsub = document.querySelectorAll('button')[0]
+   btnsub.addEventListener('click', (e) => {
+      e.preventDefault()
+      var mydata = JSON.parse(localStorage.getItem('dataa'))
+      console.log(mydata);
+      if(inp1.value!="" && inp2.value!="" && inp3.value!="" && inp4.value!=""){
+      if (mydata) {
+      var z = mydata.filter((ele) => {
+      if (ele.email == inp2.value) {
+            return ele
+          }
+        })
+        if (z != "") {
+          alert('already data exist')
+        }
+        else {
+          var con = mydata
+          var obj = { name: `${inp1.value}`,number:`${inp4.value}`, email:`${inp2.value}`, pasword: `${inp3.value}` }
+          con.push(obj)
+          localStorage.setItem('dataa', JSON.stringify(con))
+                }
+                }    
+      else {
+        var obj = { name: `${inp1.value}`,number:`${inp4.value}`, email: `${inp2.value}`, pasword: `${inp3.value}`, }
+        localStorage.setItem('dataa', JSON.stringify([obj]))
+           }
+         }
+    else{
+      alert('fill all inputs')
+      inp1.value!=""
+    }
+    if(inp1.value=="" || inp2.value=="" || inp3.value=="" || inp4.value==""){
+      inp1.value!=""
+    inp2.value!=""
+    inp3.value!=""
+    }
+    else{
+      inp1.value=""
+    inp2.value=""
+    inp3.value=""
+    }
+    })
+   </script>
+</body>
+
+</html>
